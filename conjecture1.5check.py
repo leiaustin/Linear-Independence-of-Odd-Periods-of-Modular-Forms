@@ -142,7 +142,8 @@ def row_reduce(matrix, p):
 			submatrix = [matrix[r][1:] for r in range(row)]
 			return row_reduce(submatrix, p)
 
-# checks for all choices of n k_i and l-i, the matrix corresponding to their normalized fourier coefficients has full rank.
+# checks for all choices of n k_i and l_i, the matrix taken mod p corresponding to their normalized fourier coefficients has full rank.
+# checks for all primes p from 1.2 * K to 500 that the matrix mod p has full rank
 for K in range(24, 202, 2):
 	if K != 26:
 		n = cusp_dim(K)

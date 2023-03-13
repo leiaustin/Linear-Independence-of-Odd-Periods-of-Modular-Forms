@@ -142,9 +142,12 @@ def row_reduce(matrix, p):
 			submatrix = [matrix[r][1:] for r in range(row)]
 			return row_reduce(submatrix, p)
 
-# checks for all choices of n k_i and l_i, the matrix taken mod p corresponding to their normalized fourier coefficients has full rank.
-# checks for all primes p from 1.2 * K to 500 that the matrix mod p has full rank
+# checks for all choices of n k_i and l_i, the matrix taken corresponding to their normalized fourier coefficients has full rank.
+# does so by checking for all primes p from 1.2 * K to 500 that the matrix mod p has full rank; if fails for all primes, outputs counterexample.
 for K in range(24, 202, 2):
+	# prints what weight K is being checked
+	text.write(str(K) + "\n")
+	print(str(K))
 	if K != 26:
 		n = cusp_dim(K)
 		length = 0
@@ -174,7 +177,7 @@ for K in range(24, 202, 2):
 				text.write("K = " + str(K) + " counterexample, indices " + str(indices) + "\n")
 				print("K = " + str(K) + " counterexample, indices " + str(indices) + "\n")
 			else:
-				text.write("K = " + str(K) + " done, indices " + str(indices) + "\n")
+				#text.write("K = " + str(K) + " done, indices " + str(indices) + "\n")
 				print("K = " + str(K) + " done, indices " + str(indices))
 
 

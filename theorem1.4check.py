@@ -86,7 +86,9 @@ def det(i, j, k, K):
 
 # checks that the 3x3 determinant Delta_3 in section 3 is nonzero for K < 400; checks a 2x2 determinant if dim(S_k) = 2.
 for K in range(24, 400, 2):
+	# prints what weight K is being checked
 	text.write(str(K) + "\n")
+	print(str(K))
 	if cusp_dim(K) == 2:
 		for i in range(0, 1000):
 			if i >= len(fc[(K - 24)//2]):
